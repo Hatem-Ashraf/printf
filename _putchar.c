@@ -9,10 +9,17 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+/**
+  * store - store a char in the buffer
+  * @c: char
+  * @noError: flag, if 1 means no keep storing, otherwise stop storing
+  *
+  * Return: pointer to the buffer
+  */
 char *store(char c, int noError)
 {
-	static int i = 0;
-	static char buff[bufferSize] = {'0'};
+	static int i;
+	static char buff[bufferSize];
 
 	if (i >= 1023)
 		return (buff);
@@ -25,6 +32,13 @@ char *store(char c, int noError)
 	i++;
 	return (buff);
 }
+/**
+  * toScreen - prints the buffer content to the screen
+  * @s: pointer to the string ti be printed
+  *
+  * Return: 1 if success, otherwise 0
+  */
+
 int toScreen(char *s)
 {
 	int i = 0;

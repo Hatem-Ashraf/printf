@@ -9,11 +9,10 @@ int check(const char *form)
 {
 	int i, j;
 	int out = 1;
-
 	st_spec specArr[] = {
-		{"c", pr_char}, {"s", pr_str}, {"%", pr_perc}, {"i", pr_int},
-		{"d", pr_int}, {"b", pr_binary}, {"o", pr_oct}, {"x", pr_hex},
-		{"X", pr_HEX}, {"u", pr_unsign}, {"p", pr_address}, {NULL, NULL}
+		{"c", pr_char}, {"s", pr_str}, {"i", pr_int}, {"d", pr_int},
+		{"b", pr_binary}, {"o", pr_oct}, {"x", pr_hex}, {"X", pr_HEX},
+		{"u", pr_unsign}, {"p", pr_address}, {"%", pr_perc}, {NULL, NULL}
 	};
 
 	if (!form)
@@ -29,7 +28,11 @@ int check(const char *form)
 				if (!form[i + 1] || form[i + 1] == ' ')
 					return (0);
 				if (form[i + 1] == *(specArr[j].s))
+				{
 					out = 0;
+					i++;
+					break;
+				}
 				j++;
 			}
 			if (out)
@@ -59,13 +62,13 @@ int _printf(const char *format, ...)
 	printSize = 0;
 	if (!check(format))
 		return (-1);
-	i = 0;
-	while (format[i])
+	/*Initialize the static i in the store to be 0*/
+	store('n', 0);
+	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
-			j = 0;
-			while (specArr[j].s)
+			for (j = 0; specArr[j].s; j++)
 			{
 				if (format[i + 1] == *(specArr[j].s))
 				{
@@ -79,14 +82,12 @@ int _printf(const char *format, ...)
 					printSize += temp;
 					break;
 				}
-				j++;
 			}
 		} else
 		{
 			store(format[i], 1);
 			printSize++;
 		}
-		i++;
 	}
 	toScreen(store('\0', 1));
 	return (printSize);

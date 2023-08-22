@@ -43,6 +43,7 @@ int pr_int(va_list ap)
 int pr_char(va_list ap)
 {
 	char c = (va_arg(ap, int));
+
 	store(c, 1);
 	return (1);
 }
