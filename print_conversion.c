@@ -8,8 +8,8 @@
 
 int pr_binary(va_list ap)
 {
-	int n = va_arg(ap, int);
-	int *arr = malloc(20 * sizeof(int));
+	unsigned int n = va_arg(ap, unsigned int);
+	int arr[32];
 	int i, len;
 
 	i = 0;
@@ -23,7 +23,6 @@ int pr_binary(va_list ap)
 	{
 		store(arr[i--] + '0', 1);
 	}
-	free(arr);
 	return (len);
 }
 
