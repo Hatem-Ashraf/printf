@@ -20,8 +20,28 @@ typedef struct specifier
 
 int _printf(const char *format, ...);
 
+int check(const char *form);
+
 int _putchar(char);
 
 int pr_int(va_list);
+
+int pr_char(va_list);
+
+int pr_str(va_list);
+
+int pr_perc(va_list);
+
+int pr_binary(va_list);
+
+int pr_oct(va_list);
+
+int pr_hex(va_list);
+
+int pr_HEX(va_list);
+
+int pr_unsign(va_list);
+
+int pr_address(va_list);
 
 #endif
