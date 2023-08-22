@@ -69,7 +69,6 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			for (j = 0; specArr[j].s; j++)
-			{
 				if (format[i + 1] == *(specArr[j].s))
 				{
 					temp = specArr[j].f(ap);
@@ -82,7 +81,6 @@ int _printf(const char *format, ...)
 					printSize += temp;
 					break;
 				}
-			}
 		} else
 		{
 			store(format[i], 1);
