@@ -3,7 +3,7 @@
   * pr_binary - prints binary representation of the va_list to the stdout
   * @ap: variadic function parameter
   *
-  * Retrun: Number of chars printed
+  * Return: Number of chars printed
   */
 
 int pr_binary(va_list ap)
@@ -31,7 +31,7 @@ int pr_binary(va_list ap)
   * pr_oct - prints octal representation of the va_list to the stdout
   * @ap: variadic function parameter
   *
-  * Retrun: Number of chars printed
+  * Return: Number of chars printed
   */
 
 int pr_oct(va_list ap)
@@ -57,7 +57,7 @@ int pr_oct(va_list ap)
   * pr_hex - prints hexa representation of the va_list to the stdout
   * @ap: variadic function parameter
   *
-  * Retrun: Number of chars printed
+  * Return: Number of chars printed
   */
 
 int pr_hex(va_list ap)
@@ -65,7 +65,7 @@ int pr_hex(va_list ap)
 	int n = va_arg(ap, int);
 	int arr[20] = {0};
 	int i, len;
-	char ch[6]=  "abcdef";
+	char ch[6] =  "abcdef";
 
 	i = 0;
 	while (n)
@@ -83,12 +83,19 @@ int pr_hex(va_list ap)
 	}
 	return (len);
 }
+/**
+  * pr_HEX - prints hexa representation in capital of the va_list to the stdout
+  * @ap: variadic function parameter
+  *
+  * Return: Number of chars printed
+  */
+
 int pr_HEX(va_list ap)
 {
 	int n = va_arg(ap, int);
 	int arr[20] = {0};
 	int i, len;
-	char ch[6]=  "ABCDEF";
+	char ch[6] =  "ABCDEF";
 
 	i = 0;
 	while (n)

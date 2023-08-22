@@ -20,7 +20,7 @@ int pr_unsign(va_list ap)
 	len = --i;
 	while (i > -1)
 	{
-		_putchar( arr[i--]+ '0');
+		_putchar(arr[i--] + '0');
 	}
 	return (len);
 }
@@ -36,6 +36,5 @@ int pr_address(va_list ap)
 	(void)ad;
 	(void)ap;
 	return (0);
-	
 
 }
