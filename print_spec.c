@@ -56,10 +56,15 @@ int pr_char(va_list ap)
 int pr_str(va_list ap)
 {
 	char *s = va_arg(ap, char *);
+	char arr[] = "(null)";
 	int len = 0;
 
 	if (!s)
-		return (-1);
+	{
+		while (arr[len])
+			store(arr[len++], 1);
+		return (len);
+	}
 	while (*s)
 		store(*s++, 1), len++;
 	return (len);
