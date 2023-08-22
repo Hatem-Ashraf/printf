@@ -26,10 +26,10 @@ int pr_int(va_list ap)
 	}
 	len = i--;
 	if (isNeg)
-		_putchar('-'), len++;
+		store('-', 1), len++;
 	while (i > -1)
 	{
-		_putchar(arr[i--]);
+		store(arr[i--], 1);
 	}
 	/*len is the number of digits*/
 	return (len);
@@ -42,7 +42,8 @@ int pr_int(va_list ap)
   */
 int pr_char(va_list ap)
 {
-	_putchar(va_arg(ap, int));
+	char c = (va_arg(ap, int));
+	store(c, 1);
 	return (1);
 }
 /**
@@ -59,7 +60,7 @@ int pr_str(va_list ap)
 	if (!s)
 		return (-1);
 	while (*s)
-		_putchar(*s++), len++;
+		store(*s++, 1), len++;
 	return (len);
 }
 /**
@@ -72,6 +73,6 @@ int pr_str(va_list ap)
 int pr_perc(va_list ap)
 {
 	(void)ap;
-	_putchar('%');
+	store('%', 1);
 	return (1);
 }

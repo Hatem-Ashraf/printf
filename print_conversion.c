@@ -21,7 +21,7 @@ int pr_binary(va_list ap)
 	len = i--;
 	while (i > -1)
 	{
-		_putchar(arr[i--] + '0');
+		store(arr[i--] + '0', 1);
 	}
 	free(arr);
 	return (len);
@@ -49,7 +49,7 @@ int pr_oct(va_list ap)
 	len = i--;
 	while (i > -1)
 	{
-		_putchar(arr[i--] + '0');
+		store(arr[i--] + '0', 1);
 	}
 	return (len);
 }
@@ -77,9 +77,9 @@ int pr_hex(va_list ap)
 	while (i > -1)
 	{
 		if (arr[i] >= ch[0] || arr[i] <= arr[5])
-			_putchar(arr[i--]);
+			store(arr[i--], 1);
 		else
-			_putchar(arr[i--] + '0');
+			store(arr[i--] + '0', 1);
 	}
 	return (len);
 }
@@ -107,9 +107,9 @@ int pr_HEX(va_list ap)
 	while (i > -1)
 	{
 		if (arr[i] >= ch[0] || arr[i] <= arr[5])
-			_putchar(arr[i--]);
+			store(arr[i--], 1);
 		else
-			_putchar(arr[i--] + '0');
+			store(arr[i--] + '0', 1);
 	}
 	return (len);
 }

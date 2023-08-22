@@ -20,7 +20,7 @@ int pr_unsign(va_list ap)
 	len = --i;
 	while (i > -1)
 	{
-		_putchar(arr[i--] + '0');
+		store(arr[i--] + '0', 1);
 	}
 	return (len);
 }

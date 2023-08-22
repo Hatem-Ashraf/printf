@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define bufferSize 1024
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -23,6 +25,10 @@ int _printf(const char *format, ...);
 int check(const char *form);
 
 int _putchar(char);
+
+char *store(char, int);
+
+int toScreen(char *);
 
 int pr_int(va_list);
 

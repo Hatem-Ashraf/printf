@@ -33,7 +33,7 @@ int check(const char *form)
 				j++;
 			}
 			if (out)
-			return (0);
+				return (0);
 		}
 		i++;
 	}
@@ -49,9 +49,9 @@ int _printf(const char *format, ...)
 {
 	int i, j, printSize, temp;
 	st_spec specArr[] = {
-		{"c", pr_char}, {"s", pr_str}, {"%", pr_perc}, {"i", pr_int},
-		{"d", pr_int}, {"b", pr_binary}, {"o", pr_oct}, {"x", pr_hex},
-		{"X", pr_HEX}, {"u", pr_unsign}, {"p", pr_address}, {NULL, NULL}
+		{"c", pr_char}, {"s", pr_str}, {"i", pr_int}, {"d", pr_int},
+		{"b", pr_binary}, {"o", pr_oct}, {"x", pr_hex}, {"X", pr_HEX},
+		{"u", pr_unsign}, {"p", pr_address}, {"%", pr_perc}, {NULL, NULL}
 	};
 	va_list ap;
 
@@ -69,19 +69,25 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == *(specArr[j].s))
 				{
-					temp = specArr[j].f(ap), i++;
+					temp = specArr[j].f(ap);
+					i++;
 					if (temp <= 0)
+					{
+						store('e', 0);
 						return (-1);
+					}
 					printSize += temp;
+					break;
 				}
 				j++;
 			}
 		} else
 		{
-			_putchar(format[i]);
+			store(format[i], 1);
 			printSize++;
 		}
 		i++;
 	}
+	toScreen(store('\0', 1));
 	return (printSize);
 }
