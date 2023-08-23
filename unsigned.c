@@ -32,6 +32,6 @@ int pr_unsign(va_list ap)
   */
 int pr_address(va_list ap)
 {
-	(Void)ap;
+	(void)ap;
 	return (100000);
 }
