@@ -61,7 +61,7 @@ int pr_oct(va_list ap)
 
 int pr_hex(va_list ap)
 {
-	unsigned int n = va_arg(ap,unsigned int);
+	unsigned int n = va_arg(ap, unsigned int);
 	int arr[32];
 	int i, len;
 	char ch[6] =  "abcdef";
@@ -69,7 +69,7 @@ int pr_hex(va_list ap)
 	i = 0;
 	while (n)
 	{
-		arr[i++] = n % 16 > 9 ? (unsigned int)ch[n % 16 - 10] : n % 16;
+		arr[i++] = n % 16 > 9 ? (unsigned int) ch[n % 16 - 10] : n % 16;
 		n /= 16;
 	}
 	len = i--;
@@ -99,7 +99,7 @@ int pr_HEX(va_list ap)
 	i = 0;
 	while (n)
 	{
-		arr[i++] = n % 16 > 9 ? (unsigned int)ch[n % 16 - 10] : n % 16;
+		arr[i++] = n % 16 > 9 ? (unsigned int) ch[n % 16 - 10] : n % 16;
 		n /= 16;
 	}
 	len = i--;

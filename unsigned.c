@@ -32,17 +32,6 @@ int pr_unsign(va_list ap)
   */
 int pr_address(va_list ap)
 {
-	char *ad = (char *)va_arg(ap, void *);
-/*	char *s = malloc(sizeof(void *) + 1);*/
-
-	if (!ad)
-		return (-1);
-	/*int i = 0;*/
-
-	printf("%p\n", ad);
-/*	while (ad[i])
-		store(ad[i++], 1);
-		*/
+	(Void)ap;
 	return (100000);
-
 }
