@@ -45,6 +45,7 @@ int pr_address(va_list ap)
 			store(nul[len++], 1);
 		return (len);
 	}
+	printf("%ld\n", n);
 	i = 0;
 	while (n)
 	{
@@ -53,13 +54,10 @@ int pr_address(va_list ap)
 	}
 	arr[i++] = 'x';
 	arr[i] = '0';
-	len = i + 1;
+	len = i;
 	while (i > -1)
 	{
-		if (arr[i] > 9)
-			store(arr[i--], 1);
-		else
-			store(arr[i--] + '0', 1);
+		printf("%c", arr[i]);
 	}
 	return (len);
 }

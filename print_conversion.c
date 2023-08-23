@@ -75,7 +75,7 @@ int pr_hex(va_list ap)
 	len = i--;
 	while (i > -1)
 	{
-		if (arr[i] >= ch[0] || arr[i] <= arr[5])
+		if (arr[i] > 9)
 			store(arr[i--], 1);
 		else
 			store(arr[i--] + '0', 1);
@@ -105,7 +105,7 @@ int pr_HEX(va_list ap)
 	len = i--;
 	while (i > -1)
 	{
-		if (arr[i] >= ch[0] || arr[i] <= arr[5])
+		if (arr[i] > 9)
 			store(arr[i--], 1);
 		else
 			store(arr[i--] + '0', 1);
