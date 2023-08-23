@@ -35,8 +35,8 @@ int pr_binary(va_list ap)
 
 int pr_oct(va_list ap)
 {
-	int n = va_arg(ap, int);
-	int arr[20] = {0};
+	unsigned int n = va_arg(ap, unsigned int);
+	int arr[32];
 	int i, len;
 
 	i = 0;
@@ -61,15 +61,15 @@ int pr_oct(va_list ap)
 
 int pr_hex(va_list ap)
 {
-	int n = va_arg(ap, int);
-	int arr[20] = {0};
+	unsigned int n = va_arg(ap,unsigned int);
+	int arr[32];
 	int i, len;
 	char ch[6] =  "abcdef";
 
 	i = 0;
 	while (n)
 	{
-		arr[i++] = n % 16 > 9 ? ch[n % 16 - 10] : n % 16;
+		arr[i++] = n % 16 > 9 ? (unsigned int)ch[n % 16 - 10] : n % 16;
 		n /= 16;
 	}
 	len = i--;
@@ -91,15 +91,15 @@ int pr_hex(va_list ap)
 
 int pr_HEX(va_list ap)
 {
-	int n = va_arg(ap, int);
-	int arr[20] = {0};
+	unsigned int n = va_arg(ap, unsigned int);
+	int arr[32];
 	int i, len;
 	char ch[6] =  "ABCDEF";
 
 	i = 0;
 	while (n)
 	{
-		arr[i++] = n % 16 > 9 ? ch[n % 16 - 10] : n % 16;
+		arr[i++] = n % 16 > 9 ? (unsigned int)ch[n % 16 - 10] : n % 16;
 		n /= 16;
 	}
 	len = i--;

@@ -9,7 +9,7 @@ int pr_unsign(va_list ap)
 {
 	unsigned int n = va_arg(ap, unsigned int);
 	int i = 0;
-	int arr[20] = {0};
+	int arr[20];
 	int len;
 
 	while (n)
