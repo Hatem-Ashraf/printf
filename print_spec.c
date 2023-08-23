@@ -56,7 +56,7 @@ int pr_char(va_list ap)
 int pr_str(va_list ap)
 {
 	char *s = va_arg(ap, char *);
-	char arr[] = "(null)";
+	char arr[] = "(nil)";
 	int len = 0;
 
 	if (!s)
