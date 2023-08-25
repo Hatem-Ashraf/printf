@@ -63,3 +63,57 @@ int pr_address(va_list ap)
 	}
 	return (len);
 }
+
+/**
+  * pr_unprintable - prints unprintable chars
+  * @ap: va_list param
+  *
+  * Return: length of the chars printed
+  */
+int pr_unprintable(va_list ap)
+{
+	char *str = va_arg(ap, char *);
+	int i, j, len, n;
+	int temp[10];
+	char ch[6] = "ABCDEF";
+	char nil[] = "(nil)";
+
+	len = 0;
+	if (!str)
+	{
+		while (nil[len])
+			store(nil[len++], 1);
+		return (len);
+	}
+	for (i = 0; str[i]; i++)
+	{
+		if ((str[i] > 0 && str[i] < 32) || (str[i] >= 127))
+		{
+			j = 0;
+			n = str[i];
+			while (n)
+			{
+				temp[j++] = n % 16 > 9 ? ch[n % 16 - 10] : n % 16;
+				n /= 16;
+				len++;
+			}
+			j--;
+			store('\\', 1);
+			store('x', 1);
+			if (j < 1)
+			{
+				store('0', 1);
+				store(temp[0] > 9 ? temp[0] : temp[0] + '0', 1);
+			} else
+			{
+				store(temp[1] > 9 ? temp[1] : temp[1] + '0', 1);
+				store(temp[0] > 9 ? temp[0] : temp[0] + '0', 1);
+			}
+		} else
+		{
+			store(str[i], 1);
+			len++;
+		}
+	}
+	return (len);
+}

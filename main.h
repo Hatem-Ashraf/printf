@@ -50,4 +50,6 @@ int pr_unsign(va_list);
 
 int pr_address(va_list);
 
+int pr_unprintable(va_list);
+
 #endif
