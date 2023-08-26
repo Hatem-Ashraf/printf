@@ -13,7 +13,7 @@ int check(const char *form)
 		{"c", pr_char}, {"s", pr_str}, {"i", pr_int}, {"d", pr_int},
 		{"b", pr_binary}, {"o", pr_oct}, {"x", pr_hex}, {"X", pr_HEX},
 		{"u", pr_unsign}, {"p", pr_address}, {"%", pr_perc}, {"S", pr_unprintable},
-		{"R", pr_ROT13}, {NULL, NULL}
+		{"R", pr_ROT13}, {"r", pr_reverse}, {NULL, NULL}
 	};
 
 	if (!form)
@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 		{"c", pr_char}, {"s", pr_str}, {"i", pr_int}, {"d", pr_int},
 		{"b", pr_binary}, {"o", pr_oct}, {"x", pr_hex}, {"X", pr_HEX},
 		{"u", pr_unsign}, {"p", pr_address}, {"%", pr_perc}, {"S", pr_unprintable},
-		{"R", pr_ROT13}, {NULL, NULL}
+		{"R", pr_ROT13}, {"r", pr_reverse}, {NULL, NULL}
 	};
 	va_list ap;
 

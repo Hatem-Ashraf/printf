@@ -136,3 +136,31 @@ int pr_ROT13(va_list ap)
 	}
 	return (i);
 }
+/**
+  * pr_reverse - prints a reversed string to the stdout
+  * @ap: va_lsit aparam
+  *
+  * Return: Number of chars printed
+  */
+int pr_reverse(va_list ap)
+{
+	int i, len;
+	char *str = va_arg(ap, char *);
+	char nil[] = "(nil)";
+
+	if (!str)
+	{
+		len = 0;
+		while (nil[len])
+			store(nil[len++], 1);
+		return (len);
+	}
+	if (!*str)
+		return (-1);
+	for (i = 0; str[i]; i++)
+		;
+	len = --i;
+	for (; i >= 0; i--)
+		store(str[i], 1);
+	return (len);
+}

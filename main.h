@@ -54,4 +54,6 @@ int pr_unprintable(va_list);
 
 int pr_ROT13(va_list);
 
+int pr_reverse(va_list);
+
 #endif
