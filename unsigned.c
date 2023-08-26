@@ -159,7 +159,7 @@ int pr_reverse(va_list ap)
 		return (-1);
 	for (i = 0; str[i]; i++)
 		;
-	len = --i;
+	len = i--;
 	for (; i >= 0; i--)
 		store(str[i], 1);
 	return (len);
