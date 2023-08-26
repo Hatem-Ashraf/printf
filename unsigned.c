@@ -85,6 +85,8 @@ int pr_unprintable(va_list ap)
 			store(nil[len++], 1);
 		return (len);
 	}
+	if (!*str)
+		return (-1);
 	for (i = 0; str[i]; i++)
 	{
 		if ((str[i] > 0 && str[i] < 32) || (str[i] >= 127))
@@ -101,15 +103,13 @@ int pr_unprintable(va_list ap)
 			{
 				store('0', 1);
 				store(temp[0] > 9 ? temp[0] : temp[0] + '0', 1);
-			} else
-			{
+				continue;
+			}
 				store(temp[1] > 9 ? temp[1] : temp[1] + '0', 1);
 				store(temp[0] > 9 ? temp[0] : temp[0] + '0', 1);
-			}
 			continue;
 		}
-			store(str[i], 1);
-			len++;
+			store(str[i], 1), len++;
 	}
 	return (len);
 }
