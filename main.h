@@ -52,4 +52,6 @@ int pr_address(va_list);
 
 int pr_unprintable(va_list);
 
+int pr_ROT13(va_list);
+
 #endif

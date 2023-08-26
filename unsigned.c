@@ -78,7 +78,7 @@ int pr_unprintable(va_list ap)
 	char ch[6] = "ABCDEF";
 	char nil[] = "(nil)";
 
-	len = 0;
+	len = 4;
 	if (!str)
 	{
 		while (nil[len])
@@ -89,18 +89,15 @@ int pr_unprintable(va_list ap)
 	{
 		if ((str[i] > 0 && str[i] < 32) || (str[i] >= 127))
 		{
-			j = 0;
 			n = str[i];
-			while (n)
+			for (j = 0; n; j++)
 			{
-				temp[j++] = n % 16 > 9 ? ch[n % 16 - 10] : n % 16;
+				temp[j] = n % 16 > 9 ? ch[n % 16 - 10] : n % 16;
 				n /= 16;
-				len++;
 			}
-			j--;
 			store('\\', 1);
 			store('x', 1);
-			if (j < 1)
+			if (--j < 1)
 			{
 				store('0', 1);
 				store(temp[0] > 9 ? temp[0] : temp[0] + '0', 1);
@@ -109,11 +106,33 @@ int pr_unprintable(va_list ap)
 				store(temp[1] > 9 ? temp[1] : temp[1] + '0', 1);
 				store(temp[0] > 9 ? temp[0] : temp[0] + '0', 1);
 			}
-		} else
-		{
+			continue;
+		}
 			store(str[i], 1);
 			len++;
-		}
 	}
 	return (len);
+}
+
+/**
+  * pr_ROT13 - converts string into ROT13
+  * @ap: va_list param
+  *
+  * Return: length of the chars
+  */
+int pr_ROT13(va_list ap)
+{
+	int i;
+	char *str = va_arg(ap, char *);
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			store((((str[i] - 'a') + 13) % 26) + 'a', 1);
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+			store((((str[i] - 'A') + 13) % 26) + 'A', 1);
+		else
+			store(str[i], 1);
+	}
+	return (i);
 }
